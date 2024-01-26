@@ -230,38 +230,6 @@ def submit_file_to_perforce(p4, global_shelf_path, local_shelf_path):
 
 
 # UI Class for saving shelves
-class SaveShelf:
-    def __init__(self):
-        self.window = cmds.window(title='Save Shelf')
-        column = cmds.columnLayout()
-
-        self.shelf_menu = cmds.optionMenuGrp(label='Save Shelf to P4', columnWidth=(2, 150))
-        cmds.separator(h=5, style="none")
-        cmds.separator(h=2, style="out")
-
-        self.save_context_option
-
-    def __init__(self, title, menu_items):
-        self.title = title
-        self.menu_items = menu_items
-
-    def create_dialog(self):
-        self.window = cmds.window(title=self.title)
-        self.layout = cmds.columnLayout(adjustableColumn=True)
-        
-        # Add menu to the dialog
-        self.menu = cmds.optionMenu(label='Select Shelf:', parent=self.layout)
-        for item in self.menu_items:
-            cmds.menuItem(label=item, parent=self.menu)
-        
-        # Add buttons
-        self.button_layout = cmds.rowLayout(numberOfColumns=2, columnWidth2=(100, 100), columnAlign=(1, 'center'))
-        self.save_button = cmds.button(label='Save', width=100, command=self.save_callback)
-        self.cancel_button = cmds.button(label='Cancel', width=100, command=self.cancel_callback)
-        
-        cmds.showWindow(self.window)
-
-
 class SaveShelfDialog:
     def __init__(self, title, menu_items):
         self.title = title
